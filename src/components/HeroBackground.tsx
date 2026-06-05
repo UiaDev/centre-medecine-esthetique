@@ -11,7 +11,7 @@ export default function HeroBackground() {
 
       <div className="hero-bg-image-wrap absolute inset-0 z-[1]">
         <img
-          src="/images/cabinet-hero.png?v=6"
+          src="/images/cabinet-hero.png?v=7"
           alt=""
           decoding="async"
           fetchPriority="high"

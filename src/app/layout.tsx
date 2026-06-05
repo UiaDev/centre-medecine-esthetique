@@ -39,7 +39,7 @@ export default function RootLayout({
       style={{ colorScheme: "light only" }}
     >
       <head>
-        <link rel="preload" as="image" href="/images/cabinet-hero.png?v=6" fetchPriority="high" />
+        <link rel="preload" as="image" href="/images/cabinet-hero.png?v=7" fetchPriority="high" />
         <link rel="preload" as="image" href="/logo.png" />
       </head>
       <body className="min-h-screen bg-white font-sans text-slate-blue">{children}</body>
