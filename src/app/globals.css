@@ -247,24 +247,31 @@
   }
 
   .hero-bg-image {
-    filter: saturate(1.1) contrast(1.16) brightness(0.97);
+    filter: saturate(1.15) contrast(1.28) brightness(1.02);
   }
 
   .hero-bg-overlay {
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.72) 0%,
-      rgba(255, 255, 255, 0.52) 50%,
-      rgba(255, 255, 255, 0.38) 100%
-    );
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.18) 0%,
+        rgba(255, 255, 255, 0.32) 40%,
+        rgba(255, 255, 255, 0.22) 100%
+      ),
+      radial-gradient(
+        ellipse 90% 80% at 50% 42%,
+        rgba(255, 255, 255, 0.38) 0%,
+        rgba(255, 255, 255, 0.08) 55%,
+        transparent 100%
+      );
   }
 
-  .hero-bg-glow {
-    background: radial-gradient(
-      ellipse 65% 55% at 50% 35%,
-      rgba(209, 183, 141, 0.12),
-      transparent 65%
-    );
+  .hero-title-line,
+  .hero-title-highlight,
+  .hero-enter,
+  .hero-badge-text,
+  .friendly-accent {
+    text-shadow: 0 1px 12px rgba(255, 255, 255, 0.9), 0 2px 24px rgba(255, 255, 255, 0.6);
   }
 
   .hero-stat {
