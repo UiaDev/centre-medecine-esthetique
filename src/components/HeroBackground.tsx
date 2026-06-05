@@ -1,28 +1,40 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export default function HeroBackground() {
   const [loaded, setLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  const markLoaded = useCallback(() => setLoaded(true), []);
+
+  useEffect(() => {
+    const img = imgRef.current;
+    if (img?.complete && img.naturalWidth > 0) {
+      markLoaded();
+    }
+  }, [markLoaded]);
 
   return (
     <div className="pointer-events-none absolute inset-0 hero-bg-shell" aria-hidden="true">
-      <div className="hero-bg-placeholder absolute inset-0" />
+      <div
+        className={`hero-bg-placeholder absolute inset-0 ${loaded ? "hero-bg-placeholder-hidden" : ""}`}
+      />
 
       <Image
-        src="/images/cabinet-hero.png"
+        ref={imgRef}
+        src="/images/cabinet-hero.png?v=2"
         alt=""
         fill
         priority
         sizes="100vw"
-        className={`hero-bg-image object-cover ${loaded ? "hero-bg-image-visible" : ""}`}
-        onLoad={() => setLoaded(true)}
-        onLoadingComplete={() => setLoaded(true)}
+        className={`hero-bg-image object-cover object-[58%_42%] ${loaded ? "hero-bg-image-visible" : ""}`}
+        onLoad={markLoaded}
       />
 
-      <div className="hero-bg-overlay absolute inset-0" />
-      <div className="hero-bg-glow absolute inset-0" />
+      <div className={`hero-bg-overlay absolute inset-0 ${loaded ? "hero-bg-overlay-visible" : ""}`} />
+      <div className={`hero-bg-glow absolute inset-0 ${loaded ? "hero-bg-glow-visible" : ""}`} />
     </div>
   );
 }

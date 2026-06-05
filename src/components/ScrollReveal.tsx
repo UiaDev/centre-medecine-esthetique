@@ -5,15 +5,26 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 type ScrollRevealProps = {
   children: ReactNode;
   className?: string;
+  delay?: number;
 };
 
-export default function ScrollReveal({ children, className = "" }: ScrollRevealProps) {
+export default function ScrollReveal({
+  children,
+  className = "",
+  delay = 0,
+}: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      setVisible(true);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -22,7 +33,7 @@ export default function ScrollReveal({ children, className = "" }: ScrollRevealP
           observer.unobserve(el);
         }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -32px 0px" }
     );
 
     observer.observe(el);
@@ -33,6 +44,7 @@ export default function ScrollReveal({ children, className = "" }: ScrollRevealP
     <div
       ref={ref}
       className={`scroll-reveal ${visible ? "scroll-reveal-visible" : ""} ${className}`}
+      style={delay > 0 ? { transitionDelay: `${delay}ms` } : undefined}
     >
       {children}
     </div>

@@ -50,12 +50,10 @@ const treatments = [
 
 export default function Treatments() {
   return (
-    <section id="traitements" className="section-padding bg-white">
+    <section id="traitements" className="section-padding section-surface">
       <div className="section-container">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-gold-dark">
-            Nos traitements
-          </p>
+        <ScrollReveal className="mx-auto max-w-3xl text-center">
+          <p className="section-eyebrow">Nos traitements</p>
           <h2 className="section-title mt-3">
             Des soins d&apos;exception, adaptés à vos besoins
           </h2>
@@ -64,7 +62,7 @@ export default function Treatments() {
             réalisés par des praticiens expérimentés dans un environnement
             clinique haut de gamme.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Image 3 — Soins */}
         <div className="mt-14 grid items-center gap-10 lg:grid-cols-5 lg:gap-12">
@@ -77,10 +75,8 @@ export default function Treatments() {
           </ScrollReveal>
 
           <ScrollReveal className="lg:col-span-3">
-            <div className="rounded-2xl border border-slate-blue/8 bg-gray-50/80 p-8 md:p-10">
-              <p className="text-sm font-semibold uppercase tracking-widest text-gold-dark">
-                Soins sur mesure
-              </p>
+            <div className="rounded-2xl border border-slate-blue/10 bg-white/70 p-8 shadow-soft backdrop-blur-sm md:p-10">
+              <p className="section-eyebrow">Soins sur mesure</p>
               <h3 className="mt-2 text-xl font-semibold text-slate-blue md:text-2xl">
                 Chaque protocole est adapté à votre peau
               </h3>

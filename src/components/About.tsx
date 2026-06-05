@@ -25,12 +25,10 @@ const values = [
 
 export default function About() {
   return (
-    <section id="apropos" className="section-padding bg-gray-50">
+    <section id="apropos" className="section-padding section-surface-muted">
       <div className="section-container">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-gold-dark">
-            Le Centre
-          </p>
+        <ScrollReveal className="mx-auto max-w-3xl text-center">
+          <p className="section-eyebrow">Le Centre</p>
           <h2 className="section-title mt-3">
             Une approche scientifique et humaine
           </h2>
@@ -39,7 +37,7 @@ export default function About() {
             médicale et sensibilité esthétique. Nous croyons que la vraie beauté
             naît de l&apos;harmonie entre science, sécurité et bien-être.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Image 2 — Notre espace */}
         <div className="mt-14 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
@@ -53,9 +51,7 @@ export default function About() {
 
           <ScrollReveal className="space-y-6">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-gold-dark">
-                Notre espace
-              </p>
+              <p className="section-eyebrow">Notre espace</p>
               <h3 className="mt-2 text-2xl font-semibold text-slate-blue">
                 Un cadre pensé pour votre confort
               </h3>

@@ -1,4 +1,5 @@
 import { Calendar, Clock, CheckCircle2, ExternalLink, ArrowRight } from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
 import { siteConfig } from "@/config/site";
 
 const steps = [
@@ -12,14 +13,11 @@ export default function Booking() {
   const isExternalLink = bookingPlatformUrl.startsWith("http");
 
   return (
-    <section id="rendez-vous" className="section-padding bg-gray-50">
+    <section id="rendez-vous" className="section-padding section-surface-muted">
       <div className="section-container">
         <div className="grid items-start gap-12 lg:grid-cols-2">
-          {/* Left — explanation */}
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-gold-dark">
-              Rendez-vous
-            </p>
+          <ScrollReveal>
+            <p className="section-eyebrow">Rendez-vous</p>
             <h2 className="section-title mt-3">
               Réservez votre consultation en ligne
             </h2>
@@ -75,10 +73,9 @@ export default function Booking() {
               <CheckCircle2 className="h-4 w-4 text-gold-dark" />
               Annulation gratuite jusqu&apos;à 24h avant le rendez-vous
             </div>
-          </div>
+          </ScrollReveal>
 
-          {/* Right — lien vers plateforme externe */}
-          <div className="card-base overflow-hidden p-0">
+          <ScrollReveal delay={120} className="card-base overflow-hidden p-0">
             <div className="border-b border-slate-blue/10 bg-slate-blue/5 px-6 py-4">
               <p className="text-sm font-semibold text-slate-blue">
                 Agenda en ligne
@@ -133,7 +130,7 @@ export default function Booking() {
                 Ouverture dans un nouvel onglet
               </p>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

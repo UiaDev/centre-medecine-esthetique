@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const contactInfo = [
   {
@@ -46,22 +47,19 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section-padding bg-white">
+    <section id="contact" className="section-padding section-surface">
       <div className="section-container">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-gold-dark">
-            Contact
-          </p>
+        <ScrollReveal className="mx-auto max-w-3xl text-center">
+          <p className="section-eyebrow">Contact</p>
           <h2 className="section-title mt-3">Nous trouver & vous écrire</h2>
           <p className="section-subtitle mx-auto">
             Une question sur nos traitements ? Contactez-nous ou passez nous
             voir au centre. Nous serons ravis de vous accueillir.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="mt-14 grid gap-10 lg:grid-cols-2">
-          {/* Contact info */}
-          <div className="space-y-6">
+          <ScrollReveal className="space-y-6">
             {contactInfo.map((item) => (
               <div key={item.label} className="flex items-start gap-4">
                 <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-slate-blue/10">
@@ -111,9 +109,9 @@ export default function Contact() {
                 </a>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
-          {/* Contact form */}
+          <ScrollReveal delay={120}>
           <form onSubmit={handleSubmit} className="card-base space-y-5">
             <h3 className="text-lg font-semibold text-slate-blue">
               Envoyez-nous un message
@@ -187,6 +185,7 @@ export default function Contact() {
               </p>
             )}
           </form>
+          </ScrollReveal>
         </div>
       </div>
     </section>
