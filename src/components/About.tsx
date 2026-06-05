@@ -27,7 +27,7 @@ export default function About() {
   return (
     <section id="apropos" className="section-divider section-padding section-surface-muted">
       <div className="section-container">
-        <ScrollReveal className="mx-auto max-w-3xl text-center">
+        <ScrollReveal direction="up" className="mx-auto max-w-3xl text-center">
           <p className="section-eyebrow">Le Centre</p>
           <h2 className="section-title mt-3">
             Une approche scientifique et humaine
@@ -41,7 +41,7 @@ export default function About() {
 
         {/* Image 2 — Notre espace */}
         <div className="mt-14 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <ScrollReveal>
+          <ScrollReveal direction="left">
             <SoftImage
               src="/images/cabinet-espace.png"
               alt="Notre espace de soins à Rabat — cabinet moderne, lumineux et accueillant pour vos traitements esthétiques"
@@ -49,7 +49,7 @@ export default function About() {
             />
           </ScrollReveal>
 
-          <ScrollReveal className="space-y-6">
+          <ScrollReveal direction="right" delay={100} className="space-y-6">
             <div>
               <p className="section-eyebrow">Notre espace</p>
               <h3 className="mt-2 text-2xl font-semibold text-slate-blue">
@@ -80,8 +80,8 @@ export default function About() {
         </div>
 
         <div className="mt-16 grid gap-6 md:grid-cols-3">
-          {values.map((value) => (
-            <ScrollReveal key={value.title}>
+          {values.map((value, index) => (
+            <ScrollReveal key={value.title} direction="up" delay={index * 120}>
               <article className="card-base h-full text-center md:text-left">
                 <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-lg bg-slate-blue/10 md:mx-0">
                   <value.icon className="h-7 w-7 text-slate-blue" strokeWidth={1.5} />

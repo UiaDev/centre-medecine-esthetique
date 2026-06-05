@@ -52,7 +52,7 @@ export default function Treatments() {
   return (
     <section id="traitements" className="section-divider section-padding section-surface">
       <div className="section-container">
-        <ScrollReveal className="mx-auto max-w-3xl text-center">
+        <ScrollReveal direction="up" className="mx-auto max-w-3xl text-center">
           <p className="section-eyebrow">Nos traitements</p>
           <h2 className="section-title mt-3">
             Des soins d&apos;exception, adaptés à vos besoins
@@ -66,7 +66,7 @@ export default function Treatments() {
 
         {/* Image 3 — Soins */}
         <div className="mt-14 grid items-center gap-10 lg:grid-cols-5 lg:gap-12">
-          <ScrollReveal className="lg:col-span-2">
+          <ScrollReveal direction="left" className="lg:col-span-2">
             <SoftImage
               src="/images/cabinet-soins.png"
               alt="Séance de soin esthétique personnalisée — praticienne et patiente dans notre cabinet médical à Rabat"
@@ -93,8 +93,8 @@ export default function Treatments() {
         </div>
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {treatments.map((treatment) => (
-            <ScrollReveal key={treatment.title}>
+          {treatments.map((treatment, index) => (
+            <ScrollReveal key={treatment.title} direction="up" delay={(index % 3) * 100}>
               <article className="card-base flex h-full flex-col">
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gold/15">
                   <treatment.icon className="h-6 w-6 text-gold-dark" strokeWidth={1.5} />

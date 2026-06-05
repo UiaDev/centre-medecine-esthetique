@@ -9,6 +9,7 @@ import {
   Mail,
 } from "lucide-react";
 import MapQrCode from "@/components/MapQrCode";
+import ScrollReveal from "@/components/ScrollReveal";
 import { siteConfig } from "@/config/site";
 
 const legalLinks = [
@@ -78,8 +79,7 @@ export default function Footer() {
       <div className="section-container py-14 md:py-16">
         {/* Section principale */}
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
-          {/* Marque */}
-          <div className="lg:col-span-4">
+          <ScrollReveal direction="up" className="lg:col-span-4">
             <Link href="#accueil" className="inline-block">
               <div className="inline-block rounded-xl bg-white px-5 py-3.5 shadow-soft">
                 <Image
@@ -107,10 +107,9 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-          </div>
+          </ScrollReveal>
 
-          {/* Contact */}
-          <div className="lg:col-span-4">
+          <ScrollReveal direction="up" delay={120} className="lg:col-span-4">
             <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-gold">
               Contact
             </h3>
@@ -131,19 +130,17 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </ScrollReveal>
 
-          {/* QR code */}
-          <div className="lg:col-span-4">
+          <ScrollReveal direction="up" delay={240} className="lg:col-span-4">
             <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-gold">
               Localisation
             </h3>
             <MapQrCode />
-          </div>
+          </ScrollReveal>
         </div>
 
-        {/* Barre inférieure : logo + légal + copyright */}
-        <div className="mt-12 border-t border-white/10 pt-6">
+        <ScrollReveal direction="up" delay={100} className="mt-12 border-t border-white/10 pt-6">
           <div className="flex flex-col items-center gap-5 md:flex-row md:justify-between">
             <Link
               href="#accueil"
@@ -183,7 +180,7 @@ export default function Footer() {
               © {new Date().getFullYear()} CMER
             </p>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </footer>
   );

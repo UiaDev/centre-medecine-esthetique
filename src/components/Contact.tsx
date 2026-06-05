@@ -49,7 +49,7 @@ export default function Contact() {
   return (
     <section id="contact" className="section-divider section-padding section-surface">
       <div className="section-container">
-        <ScrollReveal className="mx-auto max-w-3xl text-center">
+        <ScrollReveal direction="up" className="mx-auto max-w-3xl text-center">
           <p className="section-eyebrow">Contact</p>
           <h2 className="section-title mt-3">Nous trouver & vous écrire</h2>
           <p className="section-subtitle mx-auto">
@@ -59,9 +59,10 @@ export default function Contact() {
         </ScrollReveal>
 
         <div className="mt-14 grid gap-10 lg:grid-cols-2">
-          <ScrollReveal className="space-y-6">
-            {contactInfo.map((item) => (
-              <div key={item.label} className="flex items-start gap-4">
+          <div className="space-y-6">
+            {contactInfo.map((item, index) => (
+              <ScrollReveal key={item.label} direction="left" delay={index * 80}>
+              <div className="flex items-start gap-4">
                 <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-slate-blue/10">
                   <item.icon className="h-5 w-5 text-slate-blue" strokeWidth={1.5} />
                 </div>
@@ -85,9 +86,10 @@ export default function Contact() {
                   )}
                 </div>
               </div>
+              </ScrollReveal>
             ))}
 
-            {/* Google Maps */}
+            <ScrollReveal direction="up" delay={400}>
             <div className="mt-4 overflow-hidden rounded-lg border border-slate-blue/10 shadow-card">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.5!2d-6.8333109!3d33.9716542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76b061221c013%3A0xffc59eeb080476f!2sHospital%20University%20Proximity%20-%20Uman!5e0!3m2!1sfr!2sma!4v1749120000000"
@@ -109,9 +111,10 @@ export default function Contact() {
                 </a>
               </div>
             </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          </div>
 
-          <ScrollReveal delay={120}>
+          <ScrollReveal direction="right" delay={120}>
           <form onSubmit={handleSubmit} className="card-base space-y-5">
             <h3 className="text-lg font-semibold text-slate-blue">
               Envoyez-nous un message

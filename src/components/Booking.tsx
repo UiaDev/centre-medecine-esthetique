@@ -16,7 +16,7 @@ export default function Booking() {
     <section id="rendez-vous" className="section-divider section-padding section-surface-muted">
       <div className="section-container">
         <div className="grid items-start gap-12 lg:grid-cols-2">
-          <ScrollReveal>
+          <ScrollReveal direction="left">
             <p className="section-eyebrow">Rendez-vous</p>
             <h2 className="section-title mt-3">
               Réservez votre consultation en ligne
@@ -34,13 +34,17 @@ export default function Booking() {
 
             <ul className="mt-8 space-y-4">
               {steps.map((step, index) => (
-                <li key={step} className="flex items-start gap-3">
-                  <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-slate-blue text-xs font-bold text-white">
-                    {index + 1}
-                  </span>
-                  <span className="text-sm leading-relaxed text-slate-blue/80 pt-0.5">
-                    {step}
-                  </span>
+                <li key={step}>
+                  <ScrollReveal direction="left" delay={150 + index * 100}>
+                    <div className="flex items-start gap-3">
+                      <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-slate-blue text-xs font-bold text-white">
+                        {index + 1}
+                      </span>
+                      <span className="text-sm leading-relaxed text-slate-blue/80 pt-0.5">
+                        {step}
+                      </span>
+                    </div>
+                  </ScrollReveal>
                 </li>
               ))}
             </ul>
@@ -75,7 +79,7 @@ export default function Booking() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={120} className="card-base overflow-hidden p-0">
+          <ScrollReveal direction="right" delay={120} className="card-base overflow-hidden p-0">
             <div className="border-b border-slate-blue/10 bg-slate-blue/5 px-6 py-4">
               <p className="text-sm font-semibold text-slate-blue">
                 Agenda en ligne

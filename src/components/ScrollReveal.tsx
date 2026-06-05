@@ -6,12 +6,14 @@ type ScrollRevealProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
+  direction?: "up" | "left" | "right" | "scale";
 };
 
 export default function ScrollReveal({
   children,
   className = "",
   delay = 0,
+  direction = "up",
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -45,23 +47,17 @@ export default function ScrollReveal({
           observer.unobserve(el);
         }
       },
-      { threshold: 0.05, rootMargin: "0px 0px 80px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px 60px 0px" }
     );
 
     observer.observe(el);
-
-    const fallback = window.setTimeout(reveal, 2500);
-
-    return () => {
-      observer.disconnect();
-      window.clearTimeout(fallback);
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
     <div
       ref={ref}
-      className={`scroll-reveal ${visible ? "scroll-reveal-visible" : ""} ${className}`}
+      className={`scroll-reveal scroll-reveal-${direction} ${visible ? "scroll-reveal-visible" : ""} ${className}`}
       style={delay > 0 ? { transitionDelay: `${delay}ms` } : undefined}
     >
       {children}
