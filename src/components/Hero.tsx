@@ -8,7 +8,7 @@ export default function Hero() {
       <HeroBackground />
 
       <div className="section-container relative z-10 flex min-h-[70vh] items-center py-6">
-        <div className="mx-auto w-full max-w-3xl text-center">
+        <div className="hero-content-backdrop mx-auto w-full max-w-3xl text-center">
           <div className="hero-badge hero-badge-float hero-enter-scale hero-delay-1 mb-6 inline-flex">
             <span className="hero-badge-icon">
               <Sparkles className="h-4 w-4" strokeWidth={2} />
@@ -28,7 +28,7 @@ export default function Hero() {
             <span className="hero-title-accent hero-title-accent-animated" aria-hidden="true" />
           </h1>
 
-          <p className="hero-enter hero-delay-4 mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-blue/80 md:text-xl">
+          <p className="hero-enter hero-delay-4 mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-blue md:text-xl">
             Une approche alliant expertise médicale, innovation scientifique et
             accompagnement personnalisé pour sublimer votre éclat en toute sécurité.
           </p>
@@ -56,7 +56,7 @@ export default function Hero() {
             </Link>
           </div>
 
-          <div className="mt-14 grid grid-cols-1 gap-6 border-t border-slate-blue/15 pt-10 sm:grid-cols-3">
+          <div className="mt-14 grid grid-cols-1 gap-6 border-t border-slate-blue/20 pt-10 sm:grid-cols-3">
             {[
               { value: "20+", label: "Années d'expertise" },
               { value: "100%", label: "Protocoles médicaux" },
