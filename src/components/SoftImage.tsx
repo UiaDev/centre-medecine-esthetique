@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 type SoftImageProps = {
   src: string;
@@ -25,37 +25,22 @@ export default function SoftImage({
   className = "",
 }: SoftImageProps) {
   const [loaded, setLoaded] = useState(false);
-  const imgRef = useRef<HTMLImageElement>(null);
-
-  const markLoaded = useCallback(() => setLoaded(true), []);
-
-  useEffect(() => {
-    const img = imgRef.current;
-    if (img?.complete && img.naturalWidth > 0) {
-      markLoaded();
-    }
-
-    const fallback = window.setTimeout(markLoaded, 3000);
-    return () => window.clearTimeout(fallback);
-  }, [markLoaded]);
 
   return (
     <div className={`soft-image-wrap ${aspectClasses[aspect]} ${className}`}>
-      <div
-        className={`soft-image-placeholder absolute inset-0 ${loaded ? "soft-image-placeholder-hidden" : ""}`}
-        aria-hidden="true"
-      />
+      {!loaded && (
+        <div className="soft-image-placeholder absolute inset-0 z-0" aria-hidden="true" />
+      )}
 
       <Image
-        ref={imgRef}
         src={src}
         alt={alt}
         fill
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-        className={`soft-image-photo object-cover ${loaded ? "soft-image-photo-visible" : ""}`}
+        className="soft-image-photo z-[1] object-cover"
         loading={priority ? undefined : "lazy"}
         priority={priority}
-        onLoad={markLoaded}
+        onLoad={() => setLoaded(true)}
       />
     </div>
   );
