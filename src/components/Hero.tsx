@@ -22,8 +22,8 @@ export default function Hero() {
             <span className="hero-title-line hero-enter-left hero-delay-2">
               Révélez votre
             </span>
-            <span className="hero-enter-right hero-delay-3 mt-1 block">
-              <span className="hero-title-highlight">beauté naturelle</span>
+            <span className="hero-title-highlight hero-title-highlight-enter mt-1 block">
+              beauté naturelle
             </span>
             <span className="hero-title-accent hero-title-accent-animated" aria-hidden="true" />
           </h1>

@@ -379,6 +379,7 @@
     .hero-enter-right,
     .hero-enter-scale,
     .hero-title-accent-animated,
+    .hero-title-highlight-enter,
     .hero-stat-animated {
       opacity: 1;
       animation: none;
@@ -485,6 +486,22 @@
     line-height: 1.1;
     color: #9a7d4e;
     -webkit-text-fill-color: #9a7d4e;
+    opacity: 1;
+  }
+
+  @keyframes hero-highlight-enter {
+    from {
+      transform: translateX(20px);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .hero-title-highlight-enter {
+    opacity: 1;
+    transform: translateX(20px);
+    animation: hero-highlight-enter 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards;
   }
 
   .hero-title-highlight::after {
