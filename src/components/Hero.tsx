@@ -1,18 +1,15 @@
 import Link from "next/link";
-import { ArrowRight, Calendar, Sparkles, Stethoscope } from "lucide-react";
+import { ArrowRight, Calendar, Sparkles, Stethoscope, Smile } from "lucide-react";
+import HeroBackground from "@/components/HeroBackground";
 
 export default function Hero() {
   return (
-    <section id="accueil" className="relative overflow-hidden bg-white section-padding">
-      {/* Subtle decorative background */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
-        <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-slate-blue/5 blur-3xl" />
-      </div>
+    <section id="accueil" className="relative min-h-[90vh] overflow-hidden bg-[#dce4ea] section-padding">
+      <HeroBackground />
 
-      <div className="section-container relative">
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="hero-badge mb-6">
+      <div className="section-container relative z-10 flex min-h-[70vh] items-center">
+        <div className="mx-auto w-full max-w-3xl text-center">
+          <div className="hero-badge hero-badge-float hero-enter-scale hero-delay-1 mb-6 inline-flex">
             <span className="hero-badge-icon">
               <Sparkles className="h-4 w-4" strokeWidth={2} />
             </span>
@@ -22,17 +19,28 @@ export default function Hero() {
           </div>
 
           <h1 className="hero-title">
-            <span className="hero-title-line">Révélez votre</span>
-            <span className="hero-title-highlight">beauté naturelle</span>
-            <span className="hero-title-accent" aria-hidden="true" />
+            <span className="hero-title-line hero-enter-left hero-delay-2">
+              Révélez votre
+            </span>
+            <span className="hero-enter-right hero-delay-3 mt-1 block">
+              <span className="hero-title-highlight">beauté naturelle</span>
+            </span>
+            <span className="hero-title-accent hero-title-accent-animated" aria-hidden="true" />
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-blue/70 md:text-xl">
+          <p className="hero-enter hero-delay-4 mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-blue/80 md:text-xl">
             Une approche alliant expertise médicale, innovation scientifique et
             accompagnement personnalisé pour sublimer votre éclat en toute sécurité.
           </p>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="friendly-accent hero-enter-scale hero-delay-5 mx-auto mt-5 inline-flex">
+            <span className="friendly-accent-icon">
+              <Smile className="h-4 w-4" strokeWidth={2} />
+            </span>
+            <span>Vous êtes entre de bonnes mains</span>
+          </div>
+
+          <div className="hero-enter hero-delay-6 mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link href="#rendez-vous" className="btn-appointment btn-appointment-lg w-full sm:w-auto">
               <span className="btn-appointment-icon">
                 <Calendar className="h-4 w-4" strokeWidth={2} />
@@ -48,16 +56,15 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* Trust indicators */}
-          <div className="mt-16 grid grid-cols-1 gap-6 border-t border-slate-blue/10 pt-10 sm:grid-cols-3">
+          <div className="mt-14 grid grid-cols-1 gap-6 border-t border-slate-blue/15 pt-10 sm:grid-cols-3">
             {[
               { value: "20+", label: "Années d'expertise" },
               { value: "100%", label: "Protocoles médicaux" },
               { value: "Sur mesure", label: "Accompagnement personnalisé" },
             ].map((item) => (
-              <div key={item.label}>
+              <div key={item.label} className="hero-stat hero-stat-animated rounded-xl px-4 py-3">
                 <p className="text-2xl font-semibold text-slate-blue">{item.value}</p>
-                <p className="mt-1 text-sm text-slate-blue/60">{item.label}</p>
+                <p className="mt-1 text-sm text-slate-blue/65">{item.label}</p>
               </div>
             ))}
           </div>

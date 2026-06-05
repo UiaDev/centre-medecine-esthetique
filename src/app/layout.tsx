@@ -38,6 +38,9 @@ export default function RootLayout({
       className={`${inter.variable} ${cormorant.variable} bg-white text-slate-blue`}
       style={{ colorScheme: "light only" }}
     >
+      <head>
+        <link rel="preload" as="image" href="/images/cabinet-hero.png" />
+      </head>
       <body className="min-h-screen bg-white font-sans text-slate-blue">{children}</body>
     </html>
   );

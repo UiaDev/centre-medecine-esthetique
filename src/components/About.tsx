@@ -1,4 +1,6 @@
 import { FlaskConical, ShieldCheck, HeartHandshake } from "lucide-react";
+import SoftImage from "@/components/SoftImage";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const values = [
   {
@@ -39,17 +41,61 @@ export default function About() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {values.map((value) => (
-            <article key={value.title} className="card-base text-center md:text-left">
-              <div className="mx-auto md:mx-0 mb-5 flex h-14 w-14 items-center justify-center rounded-lg bg-slate-blue/10">
-                <value.icon className="h-7 w-7 text-slate-blue" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-xl font-semibold text-slate-blue">{value.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-blue/70">
-                {value.description}
+        {/* Image 2 — Notre espace */}
+        <div className="mt-14 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <ScrollReveal>
+            <SoftImage
+              src="/images/cabinet-espace.png"
+              alt="Notre espace de soins à Rabat — cabinet moderne, lumineux et accueillant pour vos traitements esthétiques"
+              aspect="video"
+            />
+          </ScrollReveal>
+
+          <ScrollReveal className="space-y-6">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-widest text-gold-dark">
+                Notre espace
               </p>
-            </article>
+              <h3 className="mt-2 text-2xl font-semibold text-slate-blue">
+                Un cadre pensé pour votre confort
+              </h3>
+              <p className="mt-4 text-base leading-relaxed text-slate-blue/70">
+                Nos salles de soins allient technologie médicale de pointe et
+                ambiance apaisante. Chaque détail est conçu pour vous offrir une
+                expérience sereine, dans un environnement clinique haut de gamme
+                au cœur de Souissi, Rabat.
+              </p>
+            </div>
+            <ul className="space-y-3 text-sm text-slate-blue/75">
+              <li className="flex items-center gap-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                Équipements médicaux certifiés
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                Hygiène et protocoles stricts
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                Accueil chaleureux et personnalisé
+              </li>
+            </ul>
+          </ScrollReveal>
+        </div>
+
+        <div className="mt-16 grid gap-6 md:grid-cols-3">
+          {values.map((value) => (
+            <ScrollReveal key={value.title}>
+              <article className="card-base h-full text-center md:text-left">
+                <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-lg bg-slate-blue/10 md:mx-0">
+                  <value.icon className="h-7 w-7 text-slate-blue" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-xl font-semibold text-slate-blue">{value.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-blue/70">
+                  {value.description}
+                </p>
+              </article>
+            </ScrollReveal>
           ))}
         </div>
       </div>
