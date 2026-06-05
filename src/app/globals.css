@@ -379,7 +379,7 @@
     .hero-enter-right,
     .hero-enter-scale,
     .hero-title-accent-animated,
-    .hero-title-highlight-enter,
+    .hero-title-highlight,
     .hero-stat-animated {
       opacity: 1;
       animation: none;
@@ -485,23 +485,31 @@
     font-size: clamp(2.75rem, 7vw, 4.5rem);
     line-height: 1.1;
     color: #9a7d4e;
-    -webkit-text-fill-color: #9a7d4e;
     opacity: 1;
+    transform: none;
+    visibility: visible;
+    background: linear-gradient(
+      120deg,
+      #7a6340 0%,
+      #b89d6e 30%,
+      #d1b78d 50%,
+      #b89d6e 70%,
+      #7a6340 100%
+    );
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: title-shimmer 7s ease-in-out infinite;
   }
 
-  @keyframes hero-highlight-enter {
-    from {
-      transform: translateX(20px);
+  @supports not ((-webkit-background-clip: text) or (background-clip: text)) {
+    .hero-title-highlight {
+      -webkit-text-fill-color: #9a7d4e;
+      color: #9a7d4e;
+      background: none;
+      animation: none;
     }
-    to {
-      transform: translateX(0);
-    }
-  }
-
-  .hero-title-highlight-enter {
-    opacity: 1;
-    transform: translateX(20px);
-    animation: hero-highlight-enter 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards;
   }
 
   .hero-title-highlight::after {
