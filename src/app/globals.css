@@ -3,12 +3,42 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    color-scheme: light only;
+  }
+
   html {
     scroll-behavior: smooth;
+    background-color: #ffffff;
+    color: #5b788e;
   }
 
   body {
     @apply bg-white text-slate-blue antialiased;
+    background-color: #ffffff;
+    color: #5b788e;
+  }
+
+  /* Empêche le navigateur / téléphone de recoloriser en mode sombre */
+  @media (prefers-color-scheme: dark) {
+    html,
+    body {
+      background-color: #ffffff !important;
+      color: #5b788e !important;
+    }
+
+    input,
+    textarea,
+    select {
+      background-color: #ffffff !important;
+      color: #5b788e !important;
+      border-color: rgba(91, 120, 142, 0.25) !important;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(91, 120, 142, 0.45) !important;
+    }
   }
 }
 

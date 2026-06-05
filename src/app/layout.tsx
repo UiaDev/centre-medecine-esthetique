@@ -19,7 +19,12 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: "Centre de Médecine Esthétique et Régénérative",
   description:
-    "Révélez votre beauté naturelle grâce à une approche scientifique et humaine. Injections, laser médical et thérapie cellulaire régénérative.",
+    "Révélez votre beauté naturelle grâce à une approche scientifique et humaine. Injections, laser médical et thérapie cellulaire régénérative",
+};
+
+export const viewport = {
+  themeColor: "#5B788E",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
@@ -28,8 +33,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${inter.variable} ${cormorant.variable}`}>
-      <body className="font-sans">{children}</body>
+    <html
+      lang="fr"
+      className={`${inter.variable} ${cormorant.variable} bg-white text-slate-blue`}
+      style={{ colorScheme: "light only" }}
+    >
+      <body className="min-h-screen bg-white font-sans text-slate-blue">{children}</body>
     </html>
   );
 }
