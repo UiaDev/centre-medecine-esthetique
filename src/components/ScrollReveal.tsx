@@ -20,24 +20,42 @@ export default function ScrollReveal({
     const el = ref.current;
     if (!el) return;
 
+    const reveal = () => setVisible(true);
+
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) {
-      setVisible(true);
+      reveal();
+      return;
+    }
+
+    const inViewport = () => {
+      const rect = el.getBoundingClientRect();
+      return rect.top < window.innerHeight * 0.92 && rect.bottom > 0;
+    };
+
+    if (inViewport()) {
+      reveal();
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true);
+          reveal();
           observer.unobserve(el);
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -32px 0px" }
+      { threshold: 0.05, rootMargin: "0px 0px 80px 0px" }
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
+
+    const fallback = window.setTimeout(reveal, 2500);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(fallback);
+    };
   }, []);
 
   return (

@@ -14,6 +14,9 @@ export default function HeroBackground() {
     if (img?.complete && img.naturalWidth > 0) {
       markLoaded();
     }
+
+    const fallback = window.setTimeout(markLoaded, 3000);
+    return () => window.clearTimeout(fallback);
   }, [markLoaded]);
 
   return (

@@ -4,10 +4,10 @@ import HeroBackground from "@/components/HeroBackground";
 
 export default function Hero() {
   return (
-    <section id="accueil" className="relative min-h-[90vh] overflow-hidden bg-[#dce4ea] section-padding">
+    <section id="accueil" className="relative min-h-[90vh] overflow-x-hidden bg-[#dce4ea] section-padding pb-20 md:pb-24">
       <HeroBackground />
 
-      <div className="section-container relative z-10 flex min-h-[70vh] items-center">
+      <div className="section-container relative z-10 flex min-h-[70vh] items-center py-6">
         <div className="mx-auto w-full max-w-3xl text-center">
           <div className="hero-badge hero-badge-float hero-enter-scale hero-delay-1 mb-6 inline-flex">
             <span className="hero-badge-icon">
