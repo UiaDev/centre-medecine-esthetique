@@ -11,17 +11,15 @@ export default function HeroBackground() {
       {!loaded && <div className="hero-bg-placeholder absolute inset-0 z-0" />}
 
       <Image
-        src="/images/cabinet-hero.png?v=3"
+        src="/images/cabinet-hero.png?v=4"
         alt=""
         fill
         priority
-        quality={100}
+        unoptimized
         sizes="100vw"
         className="hero-bg-image z-[1] object-cover object-center"
         onLoad={() => setLoaded(true)}
       />
-
-      <div className="hero-bg-overlay absolute inset-0 z-[2]" />
     </div>
   );
 }

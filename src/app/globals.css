@@ -246,32 +246,22 @@
     );
   }
 
-  .hero-bg-image {
-    filter: saturate(1.15) contrast(1.28) brightness(1.02);
+  .hero-title-line {
+    text-shadow:
+      0 2px 20px rgba(255, 255, 255, 0.95),
+      0 4px 40px rgba(255, 255, 255, 0.85),
+      0 1px 4px rgba(91, 120, 142, 0.25);
   }
 
-  .hero-bg-overlay {
-    background:
-      linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.18) 0%,
-        rgba(255, 255, 255, 0.32) 40%,
-        rgba(255, 255, 255, 0.22) 100%
-      ),
-      radial-gradient(
-        ellipse 90% 80% at 50% 42%,
-        rgba(255, 255, 255, 0.38) 0%,
-        rgba(255, 255, 255, 0.08) 55%,
-        transparent 100%
-      );
+  .hero-title-highlight {
+    filter: drop-shadow(0 2px 16px rgba(255, 255, 255, 0.9))
+      drop-shadow(0 4px 28px rgba(255, 255, 255, 0.75));
   }
 
-  .hero-title-line,
-  .hero-title-highlight,
-  .hero-enter,
-  .hero-badge-text,
-  .friendly-accent {
-    text-shadow: 0 1px 12px rgba(255, 255, 255, 0.9), 0 2px 24px rgba(255, 255, 255, 0.6);
+  .hero-enter {
+    text-shadow:
+      0 2px 16px rgba(255, 255, 255, 0.95),
+      0 4px 32px rgba(255, 255, 255, 0.8);
   }
 
   .hero-stat {
