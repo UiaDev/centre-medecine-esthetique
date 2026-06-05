@@ -47,7 +47,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section-padding section-surface">
+    <section id="contact" className="section-divider section-padding section-surface">
       <div className="section-container">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <p className="section-eyebrow">Contact</p>

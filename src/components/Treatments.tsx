@@ -50,7 +50,7 @@ const treatments = [
 
 export default function Treatments() {
   return (
-    <section id="traitements" className="section-padding section-surface">
+    <section id="traitements" className="section-divider section-padding section-surface">
       <div className="section-container">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <p className="section-eyebrow">Nos traitements</p>

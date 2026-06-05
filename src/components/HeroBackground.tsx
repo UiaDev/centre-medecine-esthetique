@@ -24,7 +24,7 @@ export default function HeroBackground() {
 
       <Image
         ref={imgRef}
-        src="/images/cabinet-hero.png?v=2"
+        src="/images/cabinet-hero.png?v=3"
         alt=""
         fill
         priority

@@ -13,7 +13,7 @@ export default function Booking() {
   const isExternalLink = bookingPlatformUrl.startsWith("http");
 
   return (
-    <section id="rendez-vous" className="section-padding section-surface-muted">
+    <section id="rendez-vous" className="section-divider section-padding section-surface-muted">
       <div className="section-container">
         <div className="grid items-start gap-12 lg:grid-cols-2">
           <ScrollReveal>

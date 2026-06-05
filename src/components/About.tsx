@@ -25,7 +25,7 @@ const values = [
 
 export default function About() {
   return (
-    <section id="apropos" className="section-padding section-surface-muted">
+    <section id="apropos" className="section-divider section-padding section-surface-muted">
       <div className="section-container">
         <ScrollReveal className="mx-auto max-w-3xl text-center">
           <p className="section-eyebrow">Le Centre</p>
