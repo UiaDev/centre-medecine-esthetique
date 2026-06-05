@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-slate-blue antialiased;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .section-title {
+    @apply font-semibold text-3xl md:text-4xl text-slate-blue tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply mt-4 max-w-2xl text-base md:text-lg text-slate-blue/70 leading-relaxed;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-gold-dark hover:shadow-md;
+  }
+
+  .btn-appointment {
+    @apply relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300;
+    background: linear-gradient(135deg, #d1b78d 0%, #b89d6e 55%, #c9a97a 100%);
+    box-shadow:
+      0 4px 14px rgba(209, 183, 141, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  }
+
+  .btn-appointment:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      0 8px 22px rgba(209, 183, 141, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-appointment:active {
+    transform: translateY(0);
+  }
+
+  .btn-appointment::before {
+    content: "";
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), transparent 60%);
+  }
+
+  .btn-appointment:hover::before {
+    @apply opacity-100;
+  }
+
+  .btn-appointment-icon {
+    @apply relative flex h-7 w-7 items-center justify-center rounded-full bg-white/20;
+  }
+
+  .btn-appointment-lg {
+    @apply px-7 py-3.5 text-[15px];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border-2 border-slate-blue px-6 py-3 text-sm font-semibold text-slate-blue transition-all duration-200 hover:bg-slate-blue hover:text-white;
+  }
+
+  .btn-discover {
+    @apply relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-full border-2 border-slate-blue/25 bg-white px-5 py-2.5 text-sm font-semibold text-slate-blue transition-all duration-300;
+    box-shadow: 0 2px 10px rgba(91, 120, 142, 0.08);
+  }
+
+  .btn-discover:hover {
+    @apply border-gold/50 bg-slate-blue/5;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(91, 120, 142, 0.14);
+  }
+
+  .btn-discover:active {
+    transform: translateY(0);
+  }
+
+  .btn-discover-icon {
+    @apply flex h-7 w-7 items-center justify-center rounded-full bg-slate-blue/10 text-slate-blue transition-colors duration-300;
+  }
+
+  .btn-discover:hover .btn-discover-icon {
+    @apply bg-gold/20 text-gold-dark;
+  }
+
+  .btn-discover-arrow {
+    @apply transition-transform duration-300;
+  }
+
+  .btn-discover:hover .btn-discover-arrow {
+    transform: translateX(3px);
+  }
+
+  .btn-discover-lg {
+    @apply px-7 py-3.5 text-[15px];
+  }
+
+  .hero-badge {
+    @apply relative inline-flex items-center gap-2.5 overflow-hidden rounded-full px-5 py-2 text-sm font-semibold tracking-wide text-slate-blue;
+    background: linear-gradient(135deg, rgba(209, 183, 141, 0.14) 0%, rgba(255, 255, 255, 0.95) 45%, rgba(91, 120, 142, 0.06) 100%);
+    border: 1px solid rgba(209, 183, 141, 0.35);
+    box-shadow:
+      0 2px 12px rgba(209, 183, 141, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .hero-badge::before {
+    content: "";
+    @apply absolute inset-0 rounded-full opacity-60;
+    background: linear-gradient(90deg, transparent, rgba(209, 183, 141, 0.15), transparent);
+    animation: badge-shine 4s ease-in-out infinite;
+  }
+
+  .hero-badge-icon {
+    @apply relative flex h-7 w-7 items-center justify-center rounded-full text-gold-dark;
+    background: linear-gradient(135deg, rgba(209, 183, 141, 0.35), rgba(209, 183, 141, 0.15));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+
+  .hero-badge-text {
+    @apply relative bg-gradient-to-r from-slate-blue via-slate-blue to-gold-dark bg-clip-text text-transparent;
+  }
+
+  @keyframes badge-shine {
+    0%, 100% { transform: translateX(-120%); }
+    50% { transform: translateX(120%); }
+  }
+
+  .hero-title {
+    @apply mx-auto max-w-3xl;
+  }
+
+  .hero-title-line {
+    @apply block font-medium tracking-tight text-slate-blue;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    line-height: 1.15;
+  }
+
+  .hero-title-highlight {
+    @apply relative mt-1 inline-block font-semibold italic;
+    font-family: var(--font-display), Georgia, serif;
+    font-size: clamp(2.75rem, 7vw, 4.5rem);
+    line-height: 1.1;
+    background: linear-gradient(135deg, #5b788e 0%, #b89d6e 45%, #d1b78d 75%, #5b788e 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: title-shimmer 8s ease-in-out infinite;
+  }
+
+  .hero-title-highlight::after {
+    content: "";
+    @apply absolute -bottom-2 left-1/2 h-1 w-24 -translate-x-1/2 rounded-full;
+    background: linear-gradient(90deg, transparent, #d1b78d, transparent);
+  }
+
+  .hero-title-accent {
+    @apply mx-auto mt-4 block h-px w-16 bg-gradient-to-r from-transparent via-gold/60 to-transparent;
+  }
+
+  @keyframes title-shimmer {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 200% center; }
+  }
+
+  .card-base {
+    @apply rounded-lg border border-slate-blue/10 bg-white p-6 shadow-card transition-all duration-200 hover:shadow-soft hover:border-gold/30;
+  }
+
+  .nav-link {
+    @apply relative inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-slate-blue/75 transition-all duration-200;
+  }
+
+  .nav-link:hover {
+    @apply bg-slate-blue/5 text-slate-blue;
+  }
+
+  .nav-link-active {
+    @apply bg-slate-blue/10 text-slate-blue shadow-sm;
+  }
+
+  .nav-link-active::after {
+    content: "";
+    @apply absolute bottom-0 left-1/2 h-0.5 w-5 -translate-x-1/2 rounded-full bg-gold;
+  }
+
+  .nav-link-mobile {
+    @apply flex items-center gap-3 rounded-xl border border-transparent px-4 py-3.5 text-[15px] font-medium text-slate-blue/80 transition-all duration-200;
+  }
+
+  .nav-link-mobile:hover {
+    @apply border-slate-blue/10 bg-white text-slate-blue shadow-card;
+  }
+
+  .nav-link-mobile-active {
+    @apply border-gold/30 bg-gold/10 text-slate-blue shadow-sm;
+  }
+}
