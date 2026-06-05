@@ -24,17 +24,17 @@ export default function HeroBackground() {
 
       <Image
         ref={imgRef}
-        src="/images/cabinet-hero.png?v=3"
+        src="/images/cabinet-hero.png?v=2"
         alt=""
         fill
         priority
         sizes="100vw"
-        className={`hero-bg-image object-cover object-[58%_42%] ${loaded ? "hero-bg-image-visible" : ""}`}
+        className={`hero-bg-image object-cover ${loaded ? "hero-bg-image-visible" : ""}`}
         onLoad={markLoaded}
       />
 
-      <div className={`hero-bg-overlay absolute inset-0 ${loaded ? "hero-bg-overlay-visible" : ""}`} />
-      <div className={`hero-bg-glow absolute inset-0 ${loaded ? "hero-bg-glow-visible" : ""}`} />
+      <div className="hero-bg-overlay absolute inset-0" />
+      <div className="hero-bg-glow absolute inset-0" />
     </div>
   );
 }

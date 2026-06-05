@@ -254,62 +254,34 @@
 
   .hero-bg-image {
     opacity: 0;
-    transform: scale(1.08);
-    filter: saturate(1.12) contrast(1.05);
+    transform: scale(1.04);
+    filter: saturate(1.05) contrast(1.02);
     transition:
-      opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 2s cubic-bezier(0.22, 1, 0.36, 1);
+      opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: opacity, transform;
   }
 
   .hero-bg-image-visible {
     opacity: 1;
     transform: scale(1);
-    animation: hero-ken-burns 18s ease-in-out infinite alternate;
-  }
-
-  @keyframes hero-ken-burns {
-    0% { transform: scale(1) translate(0, 0); }
-    100% { transform: scale(1.04) translate(-0.5%, -0.3%); }
   }
 
   .hero-bg-overlay {
     background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.55) 0%,
-      rgba(255, 255, 255, 0.38) 45%,
-      rgba(255, 255, 255, 0.28) 100%
+      rgba(255, 255, 255, 0.72) 0%,
+      rgba(255, 255, 255, 0.52) 50%,
+      rgba(255, 255, 255, 0.38) 100%
     );
-    opacity: 0.7;
-    transition: opacity 1.2s ease-out 0.15s;
-  }
-
-  .hero-bg-overlay-visible {
-    opacity: 1;
   }
 
   .hero-bg-glow {
     background: radial-gradient(
-      ellipse 70% 60% at 50% 40%,
-      rgba(209, 183, 141, 0.22),
-      transparent 70%
+      ellipse 65% 55% at 50% 35%,
+      rgba(209, 183, 141, 0.12),
+      transparent 65%
     );
-    opacity: 0;
-    transition: opacity 1.4s ease-out 0.3s;
-  }
-
-  .hero-bg-glow-visible {
-    opacity: 1;
-  }
-
-  .hero-content-panel {
-    @apply rounded-3xl px-6 py-10 md:px-10 md:py-12;
-    background: rgba(255, 255, 255, 0.72);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    box-shadow:
-      0 20px 60px rgba(91, 120, 142, 0.12),
-      0 4px 16px rgba(209, 183, 141, 0.08);
-    backdrop-filter: blur(12px);
   }
 
   .hero-stat {
@@ -540,12 +512,10 @@
     }
 
     .hero-bg-image,
-    .hero-bg-image-visible,
     .soft-image-photo {
       opacity: 1;
       transform: none;
       transition: none;
-      animation: none;
     }
 
     .hero-bg-placeholder,
@@ -553,11 +523,6 @@
       display: none;
     }
 
-    .hero-bg-overlay,
-    .hero-bg-glow {
-      opacity: 1;
-      transition: none;
-    }
   }
 
   .hero-title {
