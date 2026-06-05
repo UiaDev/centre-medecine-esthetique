@@ -297,6 +297,15 @@
     }
   }
 
+  @keyframes hero-move-right {
+    from {
+      transform: translateX(32px);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
   @keyframes hero-scale-in {
     from {
       opacity: 0;
@@ -353,6 +362,12 @@
   .hero-delay-7 { animation-delay: 1.05s; }
   .hero-delay-8 { animation-delay: 1.2s; }
 
+  .hero-badge.hero-enter-scale.hero-badge-float {
+    animation:
+      hero-scale-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards,
+      hero-float 4s ease-in-out 2s infinite;
+  }
+
   .hero-badge-float {
     animation: hero-float 4s ease-in-out infinite;
     animation-delay: 1.5s;
@@ -379,7 +394,7 @@
     .hero-enter-right,
     .hero-enter-scale,
     .hero-title-accent-animated,
-    .hero-title-highlight,
+    .hero-enter-highlight,
     .hero-stat-animated {
       opacity: 1;
       animation: none;
@@ -503,12 +518,24 @@
     animation: title-shimmer 7s ease-in-out infinite;
   }
 
+  .hero-title-highlight.hero-enter-highlight {
+    opacity: 1;
+    transform: translateX(32px);
+    animation:
+      hero-move-right 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards,
+      title-shimmer 7s ease-in-out 1.45s infinite;
+  }
+
   @supports not ((-webkit-background-clip: text) or (background-clip: text)) {
     .hero-title-highlight {
       -webkit-text-fill-color: #9a7d4e;
       color: #9a7d4e;
       background: none;
       animation: none;
+    }
+
+    .hero-title-highlight.hero-enter-highlight {
+      animation: hero-move-right 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards;
     }
   }
 
