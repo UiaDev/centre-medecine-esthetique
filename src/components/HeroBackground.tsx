@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 
 export default function HeroBackground() {
@@ -10,14 +9,13 @@ export default function HeroBackground() {
     <div className="pointer-events-none absolute inset-0 hero-bg-shell" aria-hidden="true">
       {!loaded && <div className="hero-bg-placeholder absolute inset-0 z-0" />}
 
-      <Image
-        src="/images/cabinet-hero.png?v=4"
+      {/* img natif = fichier PNG original, sans compression Next.js */}
+      <img
+        src="/images/cabinet-hero.png?v=5"
         alt=""
-        fill
-        priority
-        unoptimized
-        sizes="100vw"
-        className="hero-bg-image z-[1] object-cover object-center"
+        decoding="async"
+        fetchPriority="high"
+        className="hero-bg-image z-[1]"
         onLoad={() => setLoaded(true)}
       />
     </div>
