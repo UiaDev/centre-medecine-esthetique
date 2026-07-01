@@ -640,4 +640,45 @@
   .nav-link-mobile-active {
     @apply border-gold/30 bg-gold/10 text-slate-blue shadow-sm;
   }
+
+  /* Découvrir par zone — icônes flottantes + tooltip au survol */
+  @keyframes discover-icon-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .discover-icon-float {
+    animation: discover-icon-float 3.6s ease-in-out infinite;
+  }
+
+  .discover-tooltip {
+    transform: translate(-50%, 4px);
+  }
+
+  .group\/icon:hover .discover-tooltip {
+    transform: translate(-50%, 0);
+  }
+
+  .discover-tooltip-box {
+    @apply relative rounded-lg px-3.5 py-2.5 text-xs font-medium leading-relaxed text-white;
+    background: #4a6378;
+    box-shadow: 0 8px 24px rgba(74, 99, 120, 0.28);
+  }
+
+  .discover-tooltip-box::after {
+    content: "";
+    @apply absolute left-1/2 top-full h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rotate-45;
+    background: #4a6378;
+  }
+
+  .discover-tooltip-box-left::after {
+    left: 1.5rem;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .discover-icon-float {
+      animation: none;
+    }
+  }
 }

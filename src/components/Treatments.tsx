@@ -39,13 +39,6 @@ const treatments = [
       "Technologie laser dernière génération pour une épilation durable, confortable et adaptée à tous les phototypes.",
     href: "#rendez-vous",
   },
-  {
-    icon: Dna,
-    title: "Mésothérapie & nutritherapie",
-    description:
-      "Cocktails de vitamines et nutriments injectés en intradermique pour revitaliser la peau en profondeur et prévenir le vieillissement.",
-    href: "#rendez-vous",
-  },
 ];
 
 export default function Treatments() {
@@ -96,8 +89,17 @@ export default function Treatments() {
           {treatments.map((treatment, index) => (
             <ScrollReveal key={treatment.title} direction="up" delay={(index % 3) * 100}>
               <article className="card-base flex h-full flex-col">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gold/15">
-                  <treatment.icon className="h-6 w-6 text-gold-dark" strokeWidth={1.5} />
+                <div className="group/icon relative mb-4 h-12 w-12">
+                  <div
+                    className="discover-icon-float flex h-12 w-12 items-center justify-center rounded-lg bg-gold/15"
+                    style={{ animationDelay: `${(index % 3) * 0.25}s` }}
+                  >
+                    <treatment.icon className="h-6 w-6 text-gold-dark" strokeWidth={1.5} />
+                  </div>
+
+                  <div className="discover-tooltip pointer-events-none absolute bottom-full left-0 z-20 mb-3 w-60 opacity-0 transition-all duration-200 group-hover/icon:opacity-100">
+                    <div className="discover-tooltip-box discover-tooltip-box-left">{treatment.description}</div>
+                  </div>
                 </div>
                 <h3 className="text-lg font-semibold text-slate-blue">{treatment.title}</h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-blue/70">

@@ -9,6 +9,7 @@ import {
   Calendar,
   Home,
   Building2,
+  Compass,
   Sparkles,
   Mail,
   type LucideIcon,
@@ -25,6 +26,7 @@ const navLinks: NavLink[] = [
   { href: "#accueil", label: "Accueil", icon: Home, sectionId: "accueil" },
   { href: "#apropos", label: "Le Centre", icon: Building2, sectionId: "apropos" },
   { href: "#traitements", label: "Traitements", icon: Sparkles, sectionId: "traitements" },
+  { href: "#decouvrir", label: "Découvrir", icon: Compass, sectionId: "decouvrir" },
   { href: "#rendez-vous", label: "Rendez-vous", icon: Calendar, sectionId: "rendez-vous" },
   { href: "#contact", label: "Contact", icon: Mail, sectionId: "contact" },
 ];
